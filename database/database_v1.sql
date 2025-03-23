@@ -1,15 +1,26 @@
+-- Crear base de datos
+CREATE DATABASE proyecto_seguridad;
+USE proyecto_seguridad;
+
 -- Tabla Rol
 CREATE TABLE Rol (
     ID_Rol INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre_Rol VARCHAR(50) NOT NULL
+    Nombre_Rol VARCHAR(50) NOT NULL UNIQUE
 );
+
+-- Insertar roles iniciales
+INSERT INTO Rol (Nombre_Rol) VALUES
+('Superadmin'),
+('Administrador'),
+('Contable'),
+('Técnico');
 
 -- Tabla Usuario
 CREATE TABLE Usuario (
     ID_Usuario INT AUTO_INCREMENT PRIMARY KEY,
     Nombre VARCHAR(100) NOT NULL,
     Apellido VARCHAR(100) NOT NULL,
-    Correo VARCHAR(150) UNIQUE NOT NULL,
+    Correo VARCHAR(150) NOT NULL UNIQUE,
     Contraseña VARCHAR(255) NOT NULL,
     Estado ENUM('Activo', 'Inactivo') DEFAULT 'Activo',
     ID_Rol INT,
@@ -58,7 +69,7 @@ CREATE TABLE Factura (
     ID_Factura INT AUTO_INCREMENT PRIMARY KEY,
     Serie_Factura VARCHAR(10) NOT NULL,
     Número_Factura VARCHAR(20) NOT NULL,
-    Fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+    Fecha DATE NOT NULL,
     Total DECIMAL(10,2) NOT NULL,
     Estado ENUM('Pendiente', 'Pagada', 'Anulada') DEFAULT 'Pendiente',
     ID_Cliente INT,
@@ -68,21 +79,8 @@ CREATE TABLE Factura (
 );
 
 -- Tabla Detalle_Factura
-CREATE TABLE Detalle_Factura (
-    ID_Detalle INT AUTO_INCREMENT PRIMARY KEY,
-    Cantidad INT NOT NULL,
-    Descripción_Concepto TEXT NOT NULL,
-    Descuento DECIMAL(10,2) DEFAULT 0.00,
-    Subtotal DECIMAL(10,2) NOT NULL,
-    ID_Factura INT,
-    ID_Producto INT,
-    FOREIGN KEY (ID_Factura) REFERENCES Factura(ID_Factura),
-    FOREIGN KEY (ID_Producto) REFERENCES Producto(ID_Producto)
-);
-
--- Datos Iniciales de Roles
-INSERT INTO Rol (Nombre_Rol) VALUES
-('Superadmin'),
-('Administrador'),
-('Contable'),
-('Técnico');
+CREATE TABLE table_name(  
+    id int NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key',
+    create_time DATETIME COMMENT 'Create Time',
+    name VARCHAR(255)
+) COMMENT '';
