@@ -1,47 +1,200 @@
-/* Estilos Básicos */
-body {
-    font-family: Arial, sans-serif;
+/* Estilos Generales */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-header {
-    background-color: #333;
-    color: white;
+body {
+    background-color: #f5f5f5;
+    line-height: 1.6;
+}
+
+/* Barra de Navegación */
+nav {
+    background: #2c3e50;
     padding: 1rem;
-    text-align: center;
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
     display: flex;
-    justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    color: white;
+nav a {
+    color: #ecf0f1;
     text-decoration: none;
-    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background 0.3s;
 }
 
+nav a:hover {
+    background: #34495e;
+}
+
+.user-info {
+    margin-left: auto;
+    color: #ecf0f1;
+}
+
+/* Contenido Principal */
 main {
-    padding: 2rem;
-    text-align: center;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    position: fixed;
+h1 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+}
+
+/* Formularios */
+form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form div {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+input, select {
     width: 100%;
-    bottom: 0;
+    padding: 0.8rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+/* Mensajes de Error/Success */
+.error {
+    color: #e74c3c;
+    background: #fadbd8;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+
+.success {
+    color: #2ecc71;
+    background: #d5f5e3;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-top: 1rem;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+th {
+    background: #3498db;
+    color: white;
+}
+
+tr:hover {
+    background: #f8f9f9;
+}
+
+/* Enlaces de Acciones */
+a {
+    color: #3498db;
+    text-decoration: none;
+    margin-right: 1rem;
+}
+
+a.danger {
+    color: #e74c3c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .user-info {
+        margin-left: 0;
+    }
+    
+    form {
+        padding: 1rem;
+    }
+}
+
+/* En styles.css */
+.estado {
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+.estado.activo {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.estado.inactivo {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+button.link {
+    background: none;
+    border: none;
+    color: #3498db;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1rem;
+}
+
+button.link:hover {
+    text-decoration: underline;
 }

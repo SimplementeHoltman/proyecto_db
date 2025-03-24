@@ -10,7 +10,7 @@
     <?php include_once 'includes/navbar.php'; ?>
     
     <main>
-        <h1>Bienvenido al Sistema de Gestión</h1>
+        <h1>Acerca de</h1>
         <p>Sistema integral para gestión empresarial</p>
     </main>
 </body>
