@@ -1,10 +1,15 @@
 <?php
+// Agregar al inicio para ver errores
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 require_once __DIR__ . '/../includes/middleware.php';
 requireRole(['Superadmin']);
 require_once __DIR__ . '/../includes/db.php';
 
 try {
-    $stmt = $pdo->prepare("
+    // Consulta SQL modificada
+    $stmt = $pdo->query("
         SELECT 
             u.ID_Usuario,
             u.Nombre,
@@ -13,16 +18,22 @@ try {
             r.Nombre_Rol as Rol,
             u.Estado
         FROM Usuario u
-        INNER JOIN Rol r ON u.ID_Rol = r.ID_Rol
+        JOIN Rol r ON u.ID_Rol = r.ID_Rol
         ORDER BY u.ID_Usuario DESC
     ");
-    $stmt->execute();
+    
+    if (!$stmt) {
+        throw new Exception("Error en la consulta SQL");
+    }
+    
     $usuarios = $stmt->fetchAll();
+
 } catch (PDOException $e) {
-    $_SESSION['error'] = "Error al cargar usuarios: " . $e->getMessage();
-    header("Location: /dashboard/");
-    exit;
+    die("Error de base de datos: " . $e->getMessage());
+} catch (Exception $e) {
+    die("Error general: " . $e->getMessage());
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">

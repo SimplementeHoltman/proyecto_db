@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['last_activity'] = time();
 
         // Limpiar URL de redirección
-        $redirect = $_SESSION['redirect_url'] ?? '/dashboard/';
+        $redirect = $_SESSION['redirect_url'] ?? '../index.php';
         unset($_SESSION['redirect_url']);
         
         header("Location: " . $redirect);

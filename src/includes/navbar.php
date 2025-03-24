@@ -7,7 +7,7 @@
         <li><a href="/pages/reportes/">Reportes</a></li>
         
         <?php if(isset($_SESSION['user_id'])): ?>
-            <li><a href="/dashboard/crear_editar_usuario.php">Dashboard</a></li>
+            <li><a href="/dashboard/dashboard.php">Dashboard</a></li>
             <li class="user-info">
                 <?= htmlspecialchars($_SESSION['nombre']) ?> 
                 (<a href="/auth/logout.php">Salir</a>)
