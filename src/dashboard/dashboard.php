@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../includes/middleware.php';
-requireRole(['Superadmin']);
+requireRole(['Superadmin', 'Técnico']);
 require_once __DIR__ . '/../includes/db.php';
 ?>
 <!DOCTYPE html>
@@ -41,7 +41,7 @@ require_once __DIR__ . '/../includes/db.php';
                 </div>
             </div>
 
-            <!-- Tarjeta de Edición Rápida -->
+            <!-- Tarjeta de Edición Rápida 
             <div class="card">
                 <h2>Acciones Rápidas</h2>
                 <p>Búsqueda directa de usuario para edición</p>
@@ -52,7 +52,7 @@ require_once __DIR__ . '/../includes/db.php';
                         Buscar
                     </button>
                 </form>
-            </div>
+            </div>-->
         </div>
     </main>
 </body>
